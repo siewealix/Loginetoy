@@ -1,0 +1,51 @@
+﻿<Window x:Class="Logiciel_nettoyage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Logiciel_nettoyage"
+        mc:Ignorable="d"
+        x:Name="fenetre"
+        Title="Logiciel de nettoyage" Height="697" Width="967" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/icone.ico" Foreground="#FFF2F6F6"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="591*"/>
+            <ColumnDefinition Width="409*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Entete-->
+        <Rectangle HorizontalAlignment="Left" Height="195" Stroke="Black" VerticalAlignment="Top" Width="969" Grid.ColumnSpan="2" Fill="#FF08707B"/>
+        <Label x:Name="titre"  Content="Analyse du PC nécessaire" HorizontalAlignment="Left" Margin="34,25,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="40" Width="625" FontWeight="Bold" Height="68" Grid.ColumnSpan="2"/>
+        <Label Content="Espace à nettoyer :" HorizontalAlignment="Left" Margin="34,98,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="20" Width="180" FontWeight="Bold" Height="34"/>
+        <Label Content="Denière analyse : " HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="20" Width="180" FontWeight="Bold" Height="34"/>
+        <Label x:Name="espace" Content="??? Mb" HorizontalAlignment="Left" Margin="219,98,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift Light" FontSize="20" Width="180" FontWeight="Bold" Height="34"/>
+        <Label x:Name="datetxt" Content="Jamais" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift Light" FontSize="20" Width="180" FontWeight="Bold" Height="34"/>
+        <Button Grid.Column="1" Content="ANALYSER" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Height="101" Width="332" Background="#FF08707B" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="25" Foreground="White" BorderThickness="5,5,5,5" BorderBrush="White" Click="Button_Analyser_Click" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" />
+        <Rectangle HorizontalAlignment="Left" Height="12" Stroke="Black" VerticalAlignment="Top" Width="969" Grid.ColumnSpan="2" Fill="#FFC8CCCC" Margin="0,195,0,0" StrokeThickness="0"/>
+
+        <!--Corps-->
+        <Button x:Name="btnclean" Content="&#xD;&#xA;&#xD;&#xA;NETTOYER" HorizontalAlignment="Left" Margin="67,232,0,0" VerticalAlignment="Top" Height="136" Width="367" Background="#FF08707B" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="25" Foreground="White" BorderThickness="5,5,5,5" BorderBrush="White" Click="Button_Nettoyer_Click" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton"  />
+        <Button Content="&#xD;&#xA;&#xD;&#xA;MISE A JOUR" HorizontalAlignment="Left" Margin="67,426,0,0" VerticalAlignment="Top" Height="136" Width="367" Background="#FF08707B" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="25" Foreground="White" BorderThickness="5,5,5,5" BorderBrush="White" Click="Button_MAJ_Click" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton"  />
+        <Button Content="&#xD;&#xA;&#xD;&#xA;HISTORIQUE" HorizontalAlignment="Left" Margin="528,232,0,0" VerticalAlignment="Top" Height="136" Width="367" Background="#FF08707B" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="25" Foreground="White" BorderThickness="5,5,5,5" BorderBrush="White" Grid.ColumnSpan="2" Click="Button_Histo_Click" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton"  />
+        <Button Content="&#xD;&#xA;&#xD;&#xA;SITE WEB" HorizontalAlignment="Left" Margin="528,426,0,0" VerticalAlignment="Top" Height="136" Width="367" Background="#FF08707B" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="25" Foreground="White" BorderThickness="5,5,5,5" BorderBrush="White" Grid.ColumnSpan="2" Click="Button_Web_Click" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" />
+        <Image x:Name="imgclean"  HorizontalAlignment="Left" Height="50" Margin="226,250,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.472,0.299" Source="/nettoyer_24px.png"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="113,250,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.472,0.299" Source="/historique_24px.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="219,444,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.472,0.299" Source="/mise_a_jour_24px.png"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="115,444,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.472,0.299" Source="/site_web_24px.png" Grid.Column="1"/>
+
+
+
+        <!--Pied-->
+        <Rectangle x:Name="carre" HorizontalAlignment="Left" Height="86" Stroke="Black" VerticalAlignment="Top" Width="969" Grid.ColumnSpan="2" Fill="#FFC8CCCC" Margin="0,593,0,0" StrokeThickness="0"/>
+        <Label  Content="© Copyright 2024 | Alix Siewe" HorizontalAlignment="Left" Margin="116,602,0,0" VerticalAlignment="Top" Foreground="#FF060101" FontFamily="Bahnschrift Light" FontSize="15" Width="737" FontWeight="Bold" Height="31" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
+        <Label  x:Name="actuTxt" Content="1.0.0" HorizontalAlignment="Left" Margin="34,633,0,0" VerticalAlignment="Top" Foreground="#FF060101" FontFamily="Bahnschrift Light" FontSize="15" Width="901" FontWeight="Bold" Height="30" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Background="#FFC8CCCC" RenderTransformOrigin="0.503,-1.198"/>
+    </Grid>
+</Window>
