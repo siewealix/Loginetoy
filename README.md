@@ -2,7 +2,7 @@
 
 PcCleaner est une application Windows **safe cleaner** pour Windows 10/11, conçue pour le nettoyage local et transparent d’un PC. L’objectif est d’offrir un outil moderne, fiable et maintenable, avec un **mode Simulation (dry-run) activé par défaut** et des garde-fous stricts (pas de registry cleaner).
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 - Analyse (scan) asynchrone avec estimation de l’espace récupérable.
 - Nettoyage optionnel après confirmation explicite.
 - Catégories configurables :
@@ -16,15 +16,15 @@ PcCleaner est une application Windows **safe cleaner** pour Windows 10/11, conç
 - Journalisation locale (Serilog) dans `%AppData%\PcCleaner\Logs`.
 - Rapport post-exécution : résumé, erreurs, audit local.
 
-## ✅ Sécurité & Éthique
+## Sécurité & Éthique
 - **Aucune collecte de données**, aucune exfiltration.
 - **Dry-run par défaut** : estimation sans suppression.
 - **Confirmation explicite** avant toute suppression.
 - **Pas de registry cleaner** (trop risqué).
-- **Allow-list** stricte + exclusion des chemins système critiques.
+- **Allow-list** stricte et exclusion des chemins système critiques.
 - Symlinks/junctions ignorés pour éviter toute traversée non sûre.
 
-## 🧱 Architecture
+## Architecture
 - **.NET 8**
 - **WPF + MVVM**
 - **DI** (Microsoft.Extensions.DependencyInjection)
@@ -42,7 +42,7 @@ tests/
   PcCleaner.Core.Tests/
 ```
 
-## 🚀 Build & Run
+## Build & Run
 ### Prérequis
 - Windows 10/11
 - .NET SDK 8.x
@@ -58,29 +58,29 @@ tests/
 - Ouvrir `PcCleaner.sln` dans Visual Studio.
 - Démarrer `PcCleaner.App`.
 
-## 🧪 Tests
+## Tests
 ```bash
 dotnet test tests/PcCleaner.Core.Tests
 ```
 
-## 🧩 Configuration
+## Configuration
 Le fichier `src/PcCleaner.App/appsettings.json` permet de personnaliser :
 - `CustomFolders` : dossiers personnalisés (whitelist).
 - `LogFolders` : dossiers pour nettoyer les `.log`.
 - `Exclusions` : patterns (`*.log`) ou chemins entiers.
 
-## 📦 Packaging (MSIX recommandé)
+## Packaging (MSIX recommandé)
 - Utiliser Visual Studio + Windows Application Packaging Project.
 - Générer un MSIX signé pour la distribution.
 - Alternative : MSIX via `dotnet publish` + `makeappx` (documenté dans la doc MSIX).
 
-## ♻️ Legacy
+## Legacy
 Aucun dossier `legacy/` n’a été trouvé. Les anciennes sources présentes à la racine du dépôt ne sont pas modifiées dans cette solution modernisée.
 
-## ⚠️ Limitations connues
+## Limitations connues
 - Certaines catégories nécessitent les droits admin (ex : `C:\Windows\Temp`).
 - Le nettoyage de la corbeille dépend des APIs Windows (P/Invoke).
 
-## 🗺️ Mapping des fonctionnalités legacy
+## Mapping des fonctionnalités legacy
 - **Registry cleaner** : supprimé (trop risqué), remplacé par nettoyage de fichiers temporaires.
 - **Nettoyage de fichiers temporaires** : conservé et modernisé (dry-run + garde-fous).
